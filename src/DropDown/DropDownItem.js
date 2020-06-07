@@ -9,7 +9,11 @@ class DropDownItem extends Component {
 	};
 
 	render() {
-		return <div className="dropDownItem">{this.props.value}</div>;
+		return (
+			<div className="dropDownItem" onClick={this.onClick}>
+				{this.props.value}
+			</div>
+		);
 	}
 }
 

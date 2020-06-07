@@ -44,6 +44,14 @@ class Autocomplete extends Component {
 		return data.data;
 	}
 
+	onSelect = (val) => {
+		this.setState({
+			submittedList: [...this.state.submittedList, val],
+			userInput: '',
+			suggestedList: []
+		});
+	};
+
 	componentDidUpdate(prevProps, prevState) {
 		if (
 			this.state.userInput !== prevState.userInput &&
@@ -104,7 +112,10 @@ class Autocomplete extends Component {
 						onKeyDown={this.onKeyDown}
 						value={this.state.userInput}
 					/>
-					<DropDown dataList={this.state.suggestedList} />
+					<DropDown
+						dataList={this.state.suggestedList}
+						onClick={this.onSelect}
+					/>
 				</div>
 			</div>
 		);

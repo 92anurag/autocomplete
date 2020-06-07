@@ -12,4 +12,5 @@
 
 .dropdownContainer {
 	width: inherit;
+	cursor: pointer;
 }
