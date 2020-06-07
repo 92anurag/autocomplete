@@ -8,7 +8,7 @@ class DropDown extends Component {
 			shouldDisplay = dataList && dataList.length ? true : false;
 
 		return (
-			<div>
+			<div className="dropdownContainer">
 				{shouldDisplay && (
 					<div className="dropDown">
 						{dataList.map((val) => (
