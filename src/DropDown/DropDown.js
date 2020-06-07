@@ -5,10 +5,10 @@ import './DropDown.css';
 class DropDown extends Component {
 	render() {
 		const {dataList} = this.props,
-			shouldDisplay = dataList && dataList.length;
+			shouldDisplay = dataList && dataList.length ? true : false;
 
 		return (
-			<React.Fragment>
+			<div>
 				{shouldDisplay && (
 					<div className="dropDown">
 						{dataList.map((val) => (
@@ -19,7 +19,7 @@ class DropDown extends Component {
 						))}
 					</div>
 				)}
-			</React.Fragment>
+			</div>
 		);
 	}
 }
