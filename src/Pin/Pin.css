@@ -1,0 +1,29 @@
+.closeIcon {
+	width: 20px;
+	height: 100%;
+	border: none;
+	border-radius: 10px;
+	background: white;
+}
+
+.closeIcon:focus {
+	outline: none;
+}
+
+.icon {
+	width: 8px;
+	height: 8px;
+	display: inline-block;
+}
+
+.pin-container {
+	display: inline-flex;
+	border: 1px solid grey;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	align-items: center;
+	border-radius: 11px;
+	padding-left: 8px;
+	padding-right: 2px;
+	margin-left: 4px;
+}
