@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Pin from '../Pin/Pin';
+import PinList from '../PinList/PinList';
 import DropDown from '../DropDown/DropDown';
 import axios from 'axios';
 import './AutoComplete.css';
@@ -82,25 +82,17 @@ class Autocomplete extends Component {
 		}
 	}
 
-	onCloseClick = (idx) => {
-		const newSubmittedList = this.state.submittedList.filter(
-			(val, index) => idx !== index
-		);
-
-		console.log(newSubmittedList);
+	onCloseClick = (newSubmittedList) => {
 		this.setState({submittedList: newSubmittedList});
 	};
 
 	render() {
 		return (
 			<div className="autoCompleteContainer">
-				{this.state.submittedList.map((value, idx) => (
-					<Pin
-						value={value}
-						idx={idx}
-						key={idx}
-						onClick={this.onCloseClick}></Pin>
-				))}
+				<PinList
+					submittedList={this.state.submittedList}
+					onCloseClick={this.onCloseClick}
+				/>
 				<div className="inputAndDropDown">
 					<input
 						ref={(ref) => {
