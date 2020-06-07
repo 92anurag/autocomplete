@@ -1,0 +1,12 @@
+.dropDown {
+	width: inherit;
+	position: absolute;
+	border: 1px solid grey;
+	box-sizing: border-box;
+}
+
+.dropDownItem {
+	padding-left: 20px;
+	height: 20px;
+	font-size: 12px;
+}

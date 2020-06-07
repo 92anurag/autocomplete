@@ -3,9 +3,8 @@ import './Pin.css';
 
 class Pin extends Component {
 	onCloseClick = (evt) => {
-		console.log(evt);
 		if (this.props.onClick) {
-			this.props.onClick();
+			this.props.onClick(this.props.idx);
 		}
 	};
 	render() {
