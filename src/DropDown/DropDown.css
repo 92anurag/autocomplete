@@ -6,8 +6,12 @@
 
 .dropDownItem {
 	padding-left: 20px;
-	height: 20px;
 	font-size: 12px;
+	line-height: 24px;
+}
+
+.dropDownItem:hover {
+	background-color: aqua;
 }
 
 .dropdownContainer {
