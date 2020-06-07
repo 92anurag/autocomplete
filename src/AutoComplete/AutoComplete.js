@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PinList from '../PinList/PinList';
 import DropDown from '../DropDown/DropDown';
+import InputField from '../InputField/InputField';
 import axios from 'axios';
 import './AutoComplete.css';
 
@@ -14,27 +15,17 @@ class Autocomplete extends Component {
 		};
 	}
 
-	onChange = (evt) => {
-		const val = evt.target.value;
+	onChange = (val) => {
 		this.setState({userInput: val});
 	};
 
-	onKeyDown = (evt) => {
-		const keyCode = evt.keyCode,
-			val = evt.target.value;
-
-		if (keyCode === 13) {
-			this.setState({
-				submittedList: [...this.state.submittedList, val],
-				userInput: '',
-				suggestedList: []
-			});
-		}
+	onEnterPress = (val) => {
+		this.setState({
+			submittedList: [...this.state.submittedList, val],
+			userInput: '',
+			suggestedList: []
+		});
 	};
-
-	componentDidMount() {
-		this.inputRef.focus();
-	}
 
 	async fetchSuggstedListed(searchTerm) {
 		const data = await axios.get(
@@ -94,14 +85,9 @@ class Autocomplete extends Component {
 					onCloseClick={this.onCloseClick}
 				/>
 				<div className="inputAndDropDown">
-					<input
-						ref={(ref) => {
-							this.inputRef = ref;
-						}}
-						className="inputField"
-						type="text"
+					<InputField
 						onChange={this.onChange}
-						onKeyDown={this.onKeyDown}
+						onEnterPress={this.onEnterPress}
 						value={this.state.userInput}
 					/>
 					<DropDown
